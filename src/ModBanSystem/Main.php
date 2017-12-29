@@ -123,7 +123,7 @@ class Main extends PluginBase implements Listener {
 				if($sender instanceof Player) {
 					if($sender->hasPermission("mod.modban")){
 					
-						$name = $this->getServer()->getPlayerExact($args[0]);
+						$name = $this->getServer()->getPlayerExact($args[1]);
 						
 						if($args[1] == "0"){
 							$hour = "6";
@@ -205,7 +205,7 @@ class Main extends PluginBase implements Listener {
 			case "modbans":
 				if($sender instanceof Player) {
 					if($sender->hasPermission("mod.modbans")){
-						$name = $this->getServer()->getPlayerExact($args[0]);
+						$name = $this->getServer()->getPlayerExact($args[1]);
 						$name = trim(strtolower($name->getName()));
 						$config = new Config($this->getDataFolder() . "players/" . strtolower($name) . ".yml", Config::YAML);
 						$data = $config->getAll();
@@ -290,7 +290,7 @@ class Main extends PluginBase implements Listener {
 			case "permban":
 				if($sender instanceof Player) {
 					if($sender->hasPermission("mod.permban")){
-						$name = $this->getServer()->getPlayerExact($args[0]);
+						$name = $this->getServer()->getPlayerExact($args[1]);
 						
 						if(count($args) >= 1) {
 							$reason = "";
@@ -328,7 +328,7 @@ class Main extends PluginBase implements Listener {
 			case "unban":
 				if($sender instanceof Player) {
 					if($sender->hasPermission("mod.unban")){
-						$name = $args[0];
+						$name = $args[1];
 						$config = new Config($this->getDataFolder() . "players/" . strtolower($name) . ".yml", Config::YAML);
 						$config->set("Ban", "False");
 						$config->set("PermBan", "False");
